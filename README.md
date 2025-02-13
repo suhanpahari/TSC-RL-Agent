@@ -10,36 +10,36 @@
 This experimental project implements and compares four different action selection policies for Deep Q-Networks (DQN) in the "PongNoFrameskip-v4" environment using OpenAI Gym. The four policies evaluated are:
 
 1. **Epsilon-Greedy**: Selects the action with the highest Q-value with probability $1 - \epsilon$ and a random action otherwise.
-
+```math
    $$
    a = \begin{cases}
    \arg\max_a Q(s, a), & \text{with probability } (1 - \epsilon) \\
    \text{random action}, & \text{with probability } \epsilon
    \end{cases}
    $$
-
+```
 2. **Boltzmann Exploration**: Uses a softmax function over Q-values to determine action probabilities.
-
+```math
    $$
    P(a) = \frac{e^{Q(s,a)/T}}{\sum_{b} e^{Q(s,b)/T}}
    $$
-
+```
    where $T$ is the temperature parameter controlling exploration.
 
 3. **Upper Confidence Bound (UCB)**: Adjusts Q-values using an exploration bonus based on action visit counts.
-
+```math
    $$
    Q_{UCB}(s, a) = Q(s, a) + c \sqrt{\frac{\ln(t)}{N(s, a)}}
    $$
-
+```
    where $c$ is a confidence parameter, $t$ is the total number of steps, and $N(s, a)$ is the count of action $a$ taken in state $s$.
 
 4. **Thompson Sampling**: Samples Q-values from a normal distribution and selects the highest.
-
+```math
    $$
    Q_{TS}(s, a) \sim \mathcal{N}(Q(s, a), \sigma^2(s, a))
    $$
-
+```
    where $\sigma^2(s, a)$ is the variance estimate of the Q-value.
     
 
