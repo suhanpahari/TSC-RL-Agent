@@ -11,34 +11,34 @@ This experimental project implements and compares four different action selectio
 
 1. **Epsilon-Greedy**: Selects the action with the highest Q-value with probability $1 - \epsilon$ and a random action otherwise.
 
-   <!-- $$
+   $$
    a = \begin{cases}
    \arg\max_a Q(s, a), & \text{with probability } (1 - \epsilon) \\
    \text{random action}, & \text{with probability } \epsilon
    \end{cases}
-   $$ -->
+   $$
 
 2. **Boltzmann Exploration**: Uses a softmax function over Q-values to determine action probabilities.
 
-   <!-- $$
+   $$
    P(a) = \frac{e^{Q(s,a)/T}}{\sum_{b} e^{Q(s,b)/T}}
-   $$ -->
+   $$
 
    where $T$ is the temperature parameter controlling exploration.
 
 3. **Upper Confidence Bound (UCB)**: Adjusts Q-values using an exploration bonus based on action visit counts.
 
-   <!-- $$
+   $$
    Q_{UCB}(s, a) = Q(s, a) + c \sqrt{\frac{\ln(t)}{N(s, a)}}
-   $$ -->
+   $$
 
    where $c$ is a confidence parameter, $t$ is the total number of steps, and $N(s, a)$ is the count of action $a$ taken in state $s$.
 
 4. **Thompson Sampling**: Samples Q-values from a normal distribution and selects the highest.
 
-   <!-- $$
+   $$
    Q_{TS}(s, a) \sim \mathcal{N}(Q(s, a), \sigma^2(s, a))
-   $$ -->
+   $$
 
    where $\sigma^2(s, a)$ is the variance estimate of the Q-value.
     
