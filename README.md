@@ -11,12 +11,12 @@ This experimental project implements and compares four different action selectio
 
 1. **Epsilon-Greedy**: Selects the action with the highest Q-value with probability $1 - \epsilon$ and a random action otherwise.
 
-   ```math
+   $$
    a = \begin{cases}
    \arg\max_a Q(s, a), & \text{with probability } (1 - \epsilon) \\
    \text{random action}, & \text{with probability } \epsilon
    \end{cases}
-   ```
+   $$
 
 2. **Boltzmann Exploration**: Uses a softmax function over Q-values to determine action probabilities.
 
