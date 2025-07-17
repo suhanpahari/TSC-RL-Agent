@@ -85,7 +85,7 @@ The program will train separate DQN models using each policy and output performa
 The final output will compare the performance of each policy by displaying:
 
 -   Total rewards per episode.
--   The evolution of exploration parameters (epsilon, temperature, etc.).
+-   The evolution of exploration parameters  (epsilon, temperature, etc.).
 -   A side-by-side comparison of policy effectiveness.
 
 ## Future Work
